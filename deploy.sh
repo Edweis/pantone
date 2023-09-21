@@ -1,0 +1,1 @@
+scp index.html edweis@lipp.igw.world:/home/edweis/Documents/pantone
