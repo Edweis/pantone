@@ -10,11 +10,11 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
-      font-size: 16px;
     }
     h1 {
       text-align: center;
     }
+    div, span, input, button { font-size: 16px;}
     #container {
       display: flex;
       flex-flow: row wrap;
@@ -41,7 +41,9 @@
   <form>
     <input autofocus type="search" placeholder="Search ..." name="search" />
     <button>search</button>
-    <a href="?random=true">random</a>
+    <a href="?random=true">
+      <button type="button">random</button>
+    </a>
   </form>
 
   <div id="container"></div>
@@ -65,6 +67,7 @@
   filteredColorsEntries = colorEntries
     .filter(([name, value]) => search == null || kebabCase(name).includes(kebabCase(search)))
     .sort(([a], [b]) => random == null ? a.localeCompare(b) : Math.random() - 0.5)
+    .slice(0, 100)
   document.querySelector('input[type=search]').value = search || ''
   container = document.getElementById("container");
   template = document.getElementsByTagName("template")[0];

@@ -1,7 +1,7 @@
 set -ex
 
 scp index.html nginx.conf   edweis@lipp.igw.world:/var/www/pantone
-ssh edweis@lipp.igw.world "sudo nginx -t && sudo nginx -s reload"
+# ssh edweis@lipp.igw.world "sudo nginx -t && sudo nginx -s reload"
 
 
 curl -L pantone.kapochamo.com | head 
