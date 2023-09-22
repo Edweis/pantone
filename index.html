@@ -29,8 +29,13 @@
     }
     form {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       gap: 8px;
+      align-items: center;
+    }
+    form input {
+      width: 308px;
     }
     a { color: inherit }
   </style>
@@ -39,11 +44,15 @@
   <h1>Pantone color names</h1>
 
   <form>
-    <input autofocus type="search" placeholder="Search ..." name="search" />
-    <button>search</button>
-    <a href="?random=true">
-      <button type="button">random</button>
-    </a>
+    <div>
+      <input autofocus type="search" placeholder="Search ..." name="search" />
+    </div>
+    <div>
+      <button>search</button>
+      <a href="?random=true">
+        <button type="button">random</button>
+      </a>
+    </div>
   </form>
 
   <div id="container"></div>
