@@ -1,10 +1,10 @@
 set -ex
 
-PROJECT=citrouille
+PROJECT=pantone
 USER=lipp
 SERVER=lipp.local 
 
-scp index.html nginx.conf   $USER@$SERVER:/home/$USER/projects/pantone/
+scp index.html nginx.conf   $USER@$SERVER:/home/$USER/projects/$PROJECT/
 ssh $USER@$SERVER "sudo nginx -t && sudo nginx -s reload"
 
 
