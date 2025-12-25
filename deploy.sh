@@ -1,15 +1,15 @@
 set -ex
 
-PROJECT=pantone
-USER=lipp
-SERVER=lipp.local 
+ssh-add ~/.ssh/cumin.pem
 
-scp index.html nginx.conf   $USER@$SERVER:/home/$USER/projects/$PROJECT/
-ssh $USER@$SERVER "sudo nginx -t && sudo nginx -s reload"
+rsync -arvzh ./index.html ./nginx.conf app@ssh-cumin.kapochamo.com:/home/app/pantone/
+
+# Reload nginx after deployment
+ssh app@ssh-cumin.kapochamo.com "sudo nginx -t && sudo nginx -s reload"
 
 
-# curl -L pantone.kapochamo.com | head 
-# Create a symlink on the server: 
-#  sudo ln -fs /home/lipp/projects/pantone/nginx.conf /etc/nginx/conf.d/pantone.kapochamo.com.conf
-# Restart NGINX
-#   sudo nginx -t && sudo nginx -s reload
+
+# curl -L pantone.kapochamo.com | head
+# To enable this nginx config, create a symlink on the server (one-time setup):
+#  ssh app@ssh-cumin.kapochamo.com "sudo ln -fs /home/app/pantone/nginx.conf /etc/nginx/conf.d/pantone.kapochamo.com.conf"
+# Note: NGINX is automatically reloaded after each deployment (see line 9 above)
