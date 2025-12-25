@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
   <title>Pantone colors</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
   <style>
     body {
       margin: auto 16px;
@@ -10,6 +10,7 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
+      touch-action: manipulation;
     }
     h1 {
       text-align: center;
@@ -21,7 +22,7 @@
       gap: 8px;
       justify-content: center;
     }
-    article { width: 200px; }
+    article { width: 150px; }
     .color  { height: 50px; display: block; }
     form {
       display: flex;
@@ -34,6 +35,7 @@
       width: 308px;
     }
     a { color: inherit }
+    input[type=color] { width: 50px; }
   </style>
 </head>
 <body>
@@ -47,8 +49,7 @@
       <a href="?random=true">
         <button type="button">random</button>
       </a>
-      <button type="button" onclick="event.target.nextElementSibling.click();">pick</button>
-      <input type="color" style="display: none;" value="#36309a" onchange="window.location.href='?pick='+this.value.replace('#', '')"/>
+      <input type="color" onchange="window.location.href='?pick='+this.value.replace('#', '')"/>
     </div>
   </form>
   <div id="container"></div>
