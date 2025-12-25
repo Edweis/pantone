@@ -21,13 +21,8 @@
       gap: 8px;
       justify-content: center;
     }
-    article {
-      width: 150px;
-    }
-    .color {
-      height: 30px;
-      display: block;
-    }
+    article { width: 200px; }
+    .color  { height: 50px; display: block; }
     form {
       display: flex;
       flex-direction: column;
@@ -88,7 +83,7 @@
       (coordA[2] - coordB[2]) ** 2
     )
     const pickCoord = coord('#'+pick)
-     document.body.style.backgroundColor='#'+pick
+     // document.body.style.backgroundColor='#'+pick
     colors = colors
       .map(e => ({...e, dist: dist(coord(e.hex), pickCoord) }))
       .sort((a, b) => a.dist - b.dist)
